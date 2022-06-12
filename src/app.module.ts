@@ -11,9 +11,19 @@ import { Order } from './orders/entities/order.entity';
 @Module({
   imports: [
     OrdersModule,
+    // SequelizeModule.forRoot({
+    //   dialect: 'sqlite',
+    //   host: join(__dirname, '..', 'database.sqlite'),
+    //   models: [Order],
+    //   autoLoadModels: true,
+    // }),
     SequelizeModule.forRoot({
-      dialect: 'sqlite',
-      host: join(__dirname, '..', 'database.sqlite'),
+      dialect: 'mysql',
+      host: 'db',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'fin',
       models: [Order],
       autoLoadModels: true,
     }),
